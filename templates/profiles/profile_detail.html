@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{%load static%}
+<html>
+<head>
+    <title>{{ profile.name }}</title>
+
+</head>
+<style>
+    body{
+     background-image:url("{%static 'images/cloudy.jpg'%}");
+     background-repeat: no-repeat;
+     width: 100%;
+     height: auto;
+     background-size: cover;
+    }
+    h1{
+
+    }
+</style>
+<body>
+    <h1>{{ profile.name }}</h1>
+    <img src="{%static '{profile.photo.url}' %}" alt="{{ profile.name }} Photo">
+    <p>{{ profile.description }}</p>
+    <a href="https://www.google.com/maps/place/Star+Giga+Net/@18.6460556,73.7594041,15.9z/data=!4m6!3m5!1s0x3bc2b9e927bf0497:0xea4c55d491f303c8!8m2!3d18.6456723!4d73.7664645!16s%2Fg%2F11c2bsv37y?authuser=0&entry=ttu" id="show-map">Show on Map</a>
+    {% for i in photo %}
+       <div style="height:300px width:300px border:1px solid black">
+          <img src="{{ profile.photo.url }}" height="200px" />
+       </div>
+    {% endfor %}
+</body>
+</html>
